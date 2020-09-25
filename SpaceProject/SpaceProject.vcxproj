@@ -147,13 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Enterprise.cpp" />
+    <ClCompile Include="SaveCapsule.cpp" />
     <ClCompile Include="SpaceProject.cpp" />
     <ClCompile Include="SpaceShip.cpp" />
+    <ClCompile Include="SpaceStation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enterprise.h" />
+    <ClInclude Include="SaveCapsule.h" />
     <ClInclude Include="SpaceShip.h" />
+    <ClInclude Include="SpaceStation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,6 +7,7 @@
 #include <random>
 #include < stdlib.h >
 #include "SpaceShip.h"
+#include "SaveCapsule.h"
 
 
 #define KEY_UP 72
@@ -15,66 +16,65 @@
 #define KEY_RIGHT 77
 using namespace std;
 
-void gotoXY(int x, int y)
-{
-    COORD coord = { x,y };
-    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(handle, coord);
-}
+
 int main()
 {
-    bool hello = false;
-    int y = 5;
-    int x = 40;
-    int power = 0;
-    int Mitglieder=0;
-    SpaceShip Schrottlaube;
-    Schrottlaube.setEnergyLevel(power);
-    Schrottlaube.setCrewMember(Mitglieder);
+    /*bool hello = false;*/
+    /*int Mitglieder=0;*/
+    SpaceShip r(5,3);
+    SpaceShip dummy(9, 9);
+    SaveCapsule Marvin(r.getx()+6,r.gety());
+    int power=0;
+    int crew=0;
     while (1) {
+        
         //draw
-        if (rand() % 100 > 50) { hello = true; }
-        gotoXY(x, y);cout << "==     0" << endl;
-        gotoXY(x, y + 1);cout << "  \\\_// " << endl;
-        gotoXY(x, y + 2); if (hello) { cout << "Beam Me Up Scotty " << endl; }
-        gotoXY(2, 25); Schrottlaube.getEnergyLevel();
-        for (long i = 0; i <= 10000000; i++);
-
-        gotoXY(x, y);cout << "        " << endl;
-        gotoXY(x, y + 1);cout << "      " << endl;
+        r.draw();
+        
+        dummy.draw();
+        ///Sleep
+        Sleep(100);
+        //Objekt löschen
+        r.erase();
+        dummy.erase();
+       
+        /*if (rand() % 100 > 50) { hello = true; }*/
+       
         //position ändern
-        x++;
-      
-        Schrottlaube.EnergyConsumtion();
-        if (Schrottlaube.Energy== 0) {
+        r.flieg();
+        dummy.flieg();
+        
+        /*if (r.Energy== 0) {
             system("CLS");
             cout << "You have no Fuel left! Luckily you know how to get out of this shit so you kill one Crew Member" << endl;
-            Schrottlaube.setEnergyLevel(power);
-            Schrottlaube.CrewMembers--;
-            cout << "You have " << Schrottlaube.CrewMembers << " Crew Member left" << endl;
-        }
+            r.setEnergyLevel(power);
+            r.CrewMembers--;
+            cout << "You have " << r.CrewMembers << " Crew Member left" << endl;
+        }*/
 
-        
-        if (x > 80) x = 0;
-        if (x < 0) x = 40;
         
 
         //Benutzer interaktion
         if (_kbhit())
         {
-            switch (_getch()) {
-            case 'q': cout << "Tschau" << endl;
-                exit(0);
-            case KEY_UP: y--;
-                break;
-            case KEY_DOWN: y++;
-                break;
-            case KEY_RIGHT: x++;
-                break;
-            case KEY_LEFT: x--;
-
+            switch (_getch())
+            {
+                
+            case 'q':
+                cout << "Sry but thats it" << endl;
+                r.destroy = true;
+                r.erase();
+                while (1) {
+                Marvin.draw();
+               /* Marvin.flieg();*/
+                Marvin.walk();
+               
+                Marvin.erase();
+                
+                }
             }
         }
+       
     }
 
 
