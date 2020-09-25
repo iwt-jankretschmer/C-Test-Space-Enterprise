@@ -11,9 +11,9 @@ protected:
     int y;
     void gotoXY(int x, int y);
 public:
-    void flieg() = 0;
-    void moving(int dx, int dy);
-    void draw() = 0;
-    void undraw() = 0;
+    virtual void flieg() = 0;
+    virtual void moving(int dx, int dy);
+    virtual void draw() = 0;
+    virtual void undraw() = 0;
 
 };
