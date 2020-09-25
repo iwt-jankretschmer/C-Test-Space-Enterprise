@@ -147,12 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="SaveCapsule.cpp" />
     <ClCompile Include="SpaceProject.cpp" />
     <ClCompile Include="SpaceShip.cpp" />
     <ClCompile Include="SpaceStation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="SaveCapsule.h" />
     <ClInclude Include="SpaceShip.h" />
     <ClInclude Include="SpaceStation.h" />

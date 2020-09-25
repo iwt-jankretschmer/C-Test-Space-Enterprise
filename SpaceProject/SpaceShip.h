@@ -3,6 +3,7 @@
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
+#include "GameObject.h"
 using namespace std;
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -15,12 +16,9 @@ using namespace std;
 
 using namespace std;
 
-class SpaceShip
+class SpaceShip: public GameObject
 {
-private: ///Eigenschaften|| Membervariablen 
-	int x;
-	int y;
-	void gotoXY(int x, int y);
+
 public://Methoden|| Memberfunktionen
 	SpaceShip(int x, int y);//Übergabe Constructor
 	void flieg();
