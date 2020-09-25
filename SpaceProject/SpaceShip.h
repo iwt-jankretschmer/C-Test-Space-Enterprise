@@ -10,8 +10,6 @@ using namespace std;
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
  // SpaceShip_H
-
-#include <iostream>
 #include <string>
 
 using namespace std;

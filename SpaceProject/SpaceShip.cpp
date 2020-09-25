@@ -11,12 +11,12 @@ using namespace std;
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
-void SpaceShip::gotoXY(int x, int y)
-{
-    COORD coord = { x,y };
-    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(handle, coord);
-}
+//void SpaceShip::gotoXY(int x, int y)
+//{
+//    COORD coord = { x,y };
+//    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+//    SetConsoleCursorPosition(handle, coord);
+//}
 
 SpaceShip::SpaceShip(int x, int y)
 {
@@ -55,7 +55,18 @@ int SpaceShip::gety() {
  void SpaceShip::hit() {
      
  }
- 
+ void SpaceShip::walk() {
+     /*switch (_getch()) {
+     case KEY_UP: y--;
+         break;
+     case KEY_DOWN: y++;
+         break;
+     case KEY_RIGHT: x++;
+         break;
+     case KEY_LEFT: x--;
+         break;
+     }*/
+ }
 
  void SpaceShip::getEnergyLevel()
 {

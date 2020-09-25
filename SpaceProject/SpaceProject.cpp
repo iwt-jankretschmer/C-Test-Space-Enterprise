@@ -8,6 +8,7 @@
 #include < stdlib.h >
 #include "SpaceShip.h"
 #include "SaveCapsule.h"
+#include "GameObject.h"
 
 
 #define KEY_UP 72
