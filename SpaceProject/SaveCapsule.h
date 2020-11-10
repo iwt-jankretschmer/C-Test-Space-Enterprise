@@ -18,6 +18,7 @@ using namespace std;
 		void walk();
 		void hit();
 		int getx();
+		int gety();
 		void killedCrewMember(int);
 		void landingChecker();
 	};

@@ -19,6 +19,14 @@ void SaveCapsule::gotoXY(int x, int y)
     SetConsoleCursorPosition(handle, coord);
 }
 
+int SaveCapsule::getx() {
+    return x;
+}
+
+int SaveCapsule::gety() {
+    return y;
+}
+
 SaveCapsule::SaveCapsule(int x, int y)
 {
     this->x = x;
@@ -39,13 +47,13 @@ void SaveCapsule::draw()
 }
 void SaveCapsule::erase()
 {
+    gotoXY(x, y - 1);cout << "       " << endl;
     gotoXY(x, y);cout << "        " << endl;
     gotoXY(x, y + 1);cout << "         " << endl;
+    gotoXY(x-1, y + 1);cout << "         " << endl;
 }
 void SaveCapsule::walk() {
     switch (_getch()) {
-    case KEY_UP: y--;
-        break;
     case KEY_DOWN: y++;
         break;
     case KEY_RIGHT: x++;

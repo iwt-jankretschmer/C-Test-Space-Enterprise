@@ -7,6 +7,7 @@
 #include <random>
 #include < stdlib.h >
 #include "SpaceShip.h"
+#include "SpaceStation.h"
 #include "SaveCapsule.h"
 #include "GameObject.h"
 
@@ -24,6 +25,10 @@ int main()
     /*int Mitglieder=0;*/
     SpaceShip r(5,3);
     SpaceShip dummy(9, 9);
+   int x2 = rand() % 80;
+    int y2 = rand() % 100;
+    int counter;
+    SpaceStation dum(x2,y2 );
     SaveCapsule Marvin(r.getx()+6,r.gety());
     int power=0;
     int crew=0;
@@ -31,6 +36,7 @@ int main()
         
         //draw
         r.draw();
+        dum.draw();
         
         dummy.draw();
         ///Sleep
@@ -62,16 +68,25 @@ int main()
             {
                 
             case 'q':
-                cout << "Sry but thats it" << endl;
                 r.destroy = true;
+                dum.destroy = true;
                 r.erase();
                 while (1) {
+                    dum.draw();
                 Marvin.draw();
                /* Marvin.flieg();*/
                 Marvin.walk();
                
                 Marvin.erase();
-                
+                if ((dum.getx()==Marvin.getx())&& (dum.gety()==Marvin.gety()))
+                    {
+                    cout << "You reached the Soace Station and survived" << endl;
+                    break;
+                     }
+                else if (dum.gety() < Marvin.gety()) {
+                    cout << "You surpassed the Soace Station and starve to death" << endl;
+                    break;
+                }
                 }
             }
         }
